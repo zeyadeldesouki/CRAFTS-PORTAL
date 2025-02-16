@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:craftsportal/Core/AppStyles.dart';
 import 'package:craftsportal/Core/CustomNavigationBar.dart';
 import 'package:craftsportal/Features/HomeView/Presentation/Views/Feedwidget.dart';
+import 'package:craftsportal/Features/HomeView/Presentation/Views/commentview.dart';
 import 'package:craftsportal/Features/ServiceProvider/Presentation/ServiceProvider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -17,6 +18,17 @@ class _HomeviewState extends State<Homeview> {
   final TextEditingController controller = TextEditingController();
 
   CollectionReference Feeds = FirebaseFirestore.instance.collection('Feeds');
+
+  final Set<String> likedItems = {};
+  void toggleLike({required String itemId}) {
+    setState(() {
+      if (likedItems.contains(itemId)) {
+        likedItems.remove(itemId);
+      } else {
+        likedItems.add(itemId);
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -40,6 +52,8 @@ class _HomeviewState extends State<Homeview> {
                         child: ListView.builder(
                           itemCount: snapshot.data!.docs.length,
                           itemBuilder: (context, index) {
+                            final isLiked = likedItems
+                                .contains(snapshot.data!.docs[index].id);
                             return Padding(
                               padding: const EdgeInsets.only(top: 8),
                               child: Container(
@@ -126,6 +140,39 @@ class _HomeviewState extends State<Homeview> {
                                           ),
                                         ],
                                       ),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          IconButton(
+                                            icon: Icon(
+                                              isLiked
+                                                  ? Icons.thumb_up
+                                                  : Icons.thumb_up_outlined,
+                                              color: isLiked
+                                                  ? Colors.blue
+                                                  : Colors.black,
+                                            ),
+                                            onPressed: () {
+                                              toggleLike(
+                                                  itemId: snapshot
+                                                      .data!.docs[index].id);
+                                            },
+                                          ),
+                                          InkWell(  
+                                            onTap: (){
+                                              Navigator.push(context, MaterialPageRoute(builder: (context){
+                                                return const Commentview();
+                                              }));
+
+                                            },
+                                            child: Text(
+                                              "Comment",
+                                              style: AppStyles.text14(context),
+                                            ),
+                                          ),
+                                        ],
+                                      )
                                     ],
                                   ),
                                 ),

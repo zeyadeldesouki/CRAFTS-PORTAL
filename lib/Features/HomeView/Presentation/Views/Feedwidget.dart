@@ -34,6 +34,7 @@ class feed extends StatelessWidget {
                 'time': DateTime.now(),
                 'gmail': FirebaseAuth.instance.currentUser!.email,
                 'name': FirebaseAuth.instance.currentUser!.displayName,
+                'id': FirebaseAuth.instance.currentUser!.uid
                 
               });
 
