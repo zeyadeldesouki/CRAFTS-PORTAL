@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "108413745409",
+    "project_id": "crafts-portal",
+    "storage_bucket": "crafts-portal.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:108413745409:android:8edcee728bf0d4b16dc300",
+        "android_client_info": {
+          "package_name": "com.example.craftsportal"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC2Yrr9kEro4ulPooeC0L-6B0SGnT6gFmQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
