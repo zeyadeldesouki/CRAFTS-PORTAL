@@ -30,6 +30,8 @@ class _HomeviewState extends State<Homeview> {
     });
   }
 
+ 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -161,10 +163,14 @@ class _HomeviewState extends State<Homeview> {
                                           ),
                                           InkWell(  
                                             onTap: (){
-                                              Navigator.push(context, MaterialPageRoute(builder: (context){
+                                              Navigator.push(context, MaterialPageRoute(
+                                                settings: RouteSettings(
+                                                  name: FirebaseAuth.instance.currentUser!.displayName,
+                                                  arguments: snapshot.data!.docs[index].id
+                                                ),
+                                                builder: (context){
                                                 return const Commentview();
                                               }));
-
                                             },
                                             child: Text(
                                               "Comment",

@@ -49,12 +49,12 @@ class Chatview extends StatelessWidget {
                     ),
                   );
                 }
-                return Center(
+                return const Center(
                   child: CircularProgressIndicator(),
                 );
               }),
-          Padding(
-            padding: const EdgeInsets.all(16.0),
+          const Padding(
+            padding: EdgeInsets.all(16.0),
             child: Sendingdata(),
           )
         ],
