@@ -12,6 +12,13 @@ class Commentview extends StatefulWidget {
 
 class _CommentviewState extends State<Commentview> {
   final TextEditingController controller = TextEditingController();
+  late String postId;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    postId = ModalRoute.of(context)!.settings.arguments as String;
+  }
 
   CollectionReference comments =
       FirebaseFirestore.instance.collection('comment');
@@ -30,6 +37,7 @@ class _CommentviewState extends State<Commentview> {
             StreamBuilder(
               stream: FirebaseFirestore.instance
                   .collection('comment')
+                  .where('postId', isEqualTo: postId)
                   .orderBy('time', descending: true)
                   .snapshots(),
               builder: (context, snapshot) {
@@ -39,9 +47,10 @@ class _CommentviewState extends State<Commentview> {
                         itemCount: snapshot.data!.docs.length,
                         itemBuilder: (context, index) {
                           return ListTile(
-                            leading:  CircleAvatar(
+                            leading: CircleAvatar(
                               radius: 30,
-                              child: Image.network("https://th.bing.com/th/id/OIP.hGSCbXlcOjL_9mmzerqAbQHaHa?w=197&h=197&c=7&r=0&o=5&dpr=1.3&pid=1.7"),
+                              child: Image.network(
+                                  "https://th.bing.com/th/id/OIP.hGSCbXlcOjL_9mmzerqAbQHaHa?w=197&h=197&c=7&r=0&o=5&dpr=1.3&pid=1.7"),
                             ),
                             title: Text(FirebaseAuth
                                 .instance.currentUser!.displayName!),
@@ -53,7 +62,11 @@ class _CommentviewState extends State<Commentview> {
                 return const Center(child: CircularProgressIndicator());
               },
             ),
-            sendingcommentitem(controller: controller, comments: comments)
+            sendingcommentitem(
+              controller: controller,
+              comments: comments,
+              postId: postId,
+            )
           ],
         ),
       ),

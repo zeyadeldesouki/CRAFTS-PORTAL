@@ -9,10 +9,12 @@ class sendingcommentitem extends StatelessWidget {
     super.key,
     required this.controller,
     required this.comments,
+    required this.postId,
   });
 
   final TextEditingController controller;
   final CollectionReference<Object?> comments;
+  final String postId;
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +32,8 @@ class sendingcommentitem extends StatelessWidget {
               await comments.add({
                 'text': controller.text,
                 'time': DateTime.now(),
-                'postid':FirebaseAuth.instance.currentUser!.uid,
+                'id': FirebaseAuth.instance.currentUser!.uid,
+                'postId': postId
               });
 
               controller.clear();
