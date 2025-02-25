@@ -17,7 +17,6 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
   @override
   Widget build(BuildContext context) {
     return CurvedNavigationBar(
-        backgroundColor: Colors.transparent,
         height: 50,
         onTap: (value) {
           setState(() {
