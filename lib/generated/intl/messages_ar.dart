@@ -32,6 +32,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "Availablein": MessageLookupByLibrary.simpleMessage("متوفر في"),
     "Cairo": MessageLookupByLibrary.simpleMessage("القاهرة"),
     "Carpenter": MessageLookupByLibrary.simpleMessage("نجار"),
+    "ChangeTheme": MessageLookupByLibrary.simpleMessage("تغيير النمط"),
     "Chat": MessageLookupByLibrary.simpleMessage("الدردشة"),
     "Comments": MessageLookupByLibrary.simpleMessage("التعليقات"),
     "CraftsPortal": MessageLookupByLibrary.simpleMessage("بوابة الحرفيين"),

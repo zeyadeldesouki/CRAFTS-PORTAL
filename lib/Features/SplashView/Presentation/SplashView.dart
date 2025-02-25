@@ -1,10 +1,12 @@
 import 'package:craftsportal/Features/SplashView/Data/ButtonModel.dart';
+import 'package:craftsportal/Features/SplashView/Presentation/Manager/cubit/theme_mode_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:craftsportal/Features/SignInView/Presentation/SignInview.dart';
 import 'package:craftsportal/Features/SignUpView/Presentation/SignUpView.dart';
 import 'package:craftsportal/Core/CustomButton.dart';
 import 'package:craftsportal/generated/l10n.dart';
 import 'package:craftsportal/Core/AppStyles.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SplashView extends StatelessWidget {
   final Function(String) changeLanguage;
@@ -120,22 +122,41 @@ class SplashView extends StatelessWidget {
                   const SizedBox(
                     height: 50,
                   ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                    child: ElevatedButton(
-                      onPressed: () {
-                        final newLocale =
-                            Localizations.localeOf(context).languageCode == 'en'
-                                ? 'ar'
-                                : 'en';
-                        changeLanguage(newLocale);
-                      },
-                      child: Text(
-                        S.of(context).switchLanguage,
-                        style: const TextStyle(fontSize: 18),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 24.0),
+                          child: ElevatedButton(
+                            onPressed: () {
+                              final newLocale = Localizations.localeOf(context)
+                                          .languageCode ==
+                                      'en'
+                                  ? 'ar'
+                                  : 'en';
+                              changeLanguage(newLocale);
+                            },
+                            child: Text(
+                              S.of(context).switchLanguage,
+                              style: const TextStyle(fontSize: 18),
+                            ),
+                          ),
+                        ),
                       ),
-                    ),
-                  ),
+                      Expanded(
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 24.0),
+                          child: ElevatedButton(
+                            onPressed: () {
+                              BlocProvider.of<ThemeModeCubit>(context)
+                                  .changetheme();
+                            },
+                            child: Text(S.of(context).ChangeTheme),
+                          ),
+                        ),
+                      ),
+                    ],
+                  )
                 ],
               ),
             ),

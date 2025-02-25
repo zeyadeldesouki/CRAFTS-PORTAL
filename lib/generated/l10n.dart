@@ -674,6 +674,16 @@ class S {
   String get switchLanguage {
     return Intl.message('English', name: 'switchLanguage', desc: '', args: []);
   }
+
+  /// `Change Theme`
+  String get ChangeTheme {
+    return Intl.message(
+      'Change Theme',
+      name: 'ChangeTheme',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

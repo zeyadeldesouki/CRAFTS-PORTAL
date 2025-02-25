@@ -32,6 +32,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "Availablein": MessageLookupByLibrary.simpleMessage("Available in"),
     "Cairo": MessageLookupByLibrary.simpleMessage("Cairo"),
     "Carpenter": MessageLookupByLibrary.simpleMessage("Carpenter"),
+    "ChangeTheme": MessageLookupByLibrary.simpleMessage("Change Theme"),
     "Chat": MessageLookupByLibrary.simpleMessage("Chat"),
     "Comments": MessageLookupByLibrary.simpleMessage("Comments"),
     "CraftsPortal": MessageLookupByLibrary.simpleMessage("Crafts Portal"),

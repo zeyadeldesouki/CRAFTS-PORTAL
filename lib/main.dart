@@ -1,8 +1,10 @@
+import 'package:craftsportal/Features/SplashView/Presentation/Manager/cubit/theme_mode_cubit.dart';
 import 'package:craftsportal/Features/SplashView/Presentation/SplashView.dart';
 import 'package:craftsportal/generated/l10n.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 void main() async {
@@ -28,17 +30,27 @@ class _craftsportalState extends State<craftsportal> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      locale: _locale,
-      localizationsDelegates: const [
-        S.delegate,
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-      ],
-      supportedLocales: S.delegate.supportedLocales,
-      debugShowCheckedModeBanner: false,
-      home: SplashView(changeLanguage: _changeLanguage),
+    return BlocProvider(
+      create: (context) => ThemeModeCubit(),
+      child: BlocBuilder<ThemeModeCubit, ThemeMode>(
+        builder: (context, state) {
+          return MaterialApp(
+            theme: ThemeData.light(),
+            darkTheme: ThemeData.dark(),
+            themeMode:state ,
+            locale: _locale,
+            localizationsDelegates: const [
+              S.delegate,
+              GlobalMaterialLocalizations.delegate,
+              GlobalWidgetsLocalizations.delegate,
+              GlobalCupertinoLocalizations.delegate,
+            ],
+            supportedLocales: S.delegate.supportedLocales,
+            debugShowCheckedModeBanner: false,
+            home: SplashView(changeLanguage: _changeLanguage),
+          );
+        },
+      ),
     );
   }
 }
