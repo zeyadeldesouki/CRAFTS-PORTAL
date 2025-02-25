@@ -1,6 +1,7 @@
 import 'package:craftsportal/Core/AppStyles.dart';
 import 'package:craftsportal/Features/ServiceProvider/Presentation/ReviewComments.dart';
 import 'package:craftsportal/Features/ServiceProvider/Presentation/ReviewRating.dart';
+import 'package:craftsportal/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
 class Reviewview extends StatelessWidget {
@@ -12,24 +13,24 @@ class Reviewview extends StatelessWidget {
       appBar: AppBar(
         centerTitle: true,
         title: Text(
-          "Reviews",
+          S.of(context).Reviews,
           style: AppStyles.text20(context),
         ),
       ),
-      body: const Padding(
-        padding: EdgeInsets.all(16.0),
+      body:  Padding(
+        padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-            ReviewRating(),
+            const ReviewRating(),
             ReviewComments(
-              title: "Mohamed",
+              title: S.of(context).Mohamed,
               subtitle:
-                  "It is a professional plumber and has done all the plumbing related work in our home. I highly recommend it",
+                 S.of(context).Describtion,
             ),
             ReviewComments(
-              title: "Ahmed",
+              title: S.of(context).Ahmed,
               subtitle:
-                  "He did a really great job, but the price is a little high",
+                  S.of(context).AhmedDescribtion,
             ),
           ],
         ),

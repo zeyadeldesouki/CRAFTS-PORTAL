@@ -1,4 +1,5 @@
 import 'package:craftsportal/Core/AppStyles.dart';
+import 'package:craftsportal/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
 class Listtileofserviceprovider extends StatelessWidget {
@@ -19,7 +20,7 @@ class Listtileofserviceprovider extends StatelessWidget {
         style: AppStyles.text20(context).copyWith(fontWeight: FontWeight.bold),
       ),
       subtitle: Text(
-        "Plumber",
+        S.of(context).Plumber,
         style: AppStyles.text14(context),
       ),
     );

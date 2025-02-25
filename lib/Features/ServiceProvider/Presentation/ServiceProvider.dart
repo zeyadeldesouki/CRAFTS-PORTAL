@@ -1,5 +1,6 @@
 import 'package:craftsportal/Core/AppStyles.dart';
 import 'package:craftsportal/Features/ServiceProvider/Presentation/serviceproviderviewbody.dart';
+import 'package:craftsportal/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
 class ServiceProvider extends StatelessWidget {
@@ -17,7 +18,7 @@ class ServiceProvider extends StatelessWidget {
         title: Align(
             alignment: Alignment.center,
             child: Text(
-              "Service Provider",
+              S.of(context).ServiceProvider,
               style: AppStyles.text20(context),
             )),
       ),

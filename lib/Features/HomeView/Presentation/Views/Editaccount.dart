@@ -1,4 +1,5 @@
 import 'package:craftsportal/Core/AppStyles.dart';
+import 'package:craftsportal/generated/l10n.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
@@ -15,22 +16,21 @@ class _EditaccountState extends State<Editaccount> {
   File? _image;
 
   Future<void> _pickImage() async {
-    
-      final pickedFile = await ImagePicker().pickImage(source: ImageSource.gallery);
+    final pickedFile =
+        await ImagePicker().pickImage(source: ImageSource.gallery);
 
-      if (pickedFile != null) {
-        setState(() {
-          _image = File(pickedFile.path);
-        });
-      }
-    
+    if (pickedFile != null) {
+      setState(() {
+        _image = File(pickedFile.path);
+      });
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Edit Account"),
+        title: Text(S.of(context).EditAccount),
         actions: [
           IconButton(
             onPressed: () {
@@ -48,7 +48,6 @@ class _EditaccountState extends State<Editaccount> {
             Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                
                 GestureDetector(
                   onTap: _pickImage,
                   child: CircleAvatar(
@@ -64,13 +63,14 @@ class _EditaccountState extends State<Editaccount> {
                             ),
                           )
                         : Container(
-                            decoration:  BoxDecoration(
+                            decoration: BoxDecoration(
                               shape: BoxShape.circle,
                               image: DecorationImage(
-                                image:_image != null ? FileImage(_image!) :
-                                const NetworkImage(
-                                  "https://th.bing.com/th/id/OIP.hGSCbXlcOjL_9mmzerqAbQHaHa?w=197&h=197&c=7&r=0&o=5&dpr=1.3&pid=1.7",
-                                ),
+                                image: _image != null
+                                    ? FileImage(_image!)
+                                    : const NetworkImage(
+                                        "https://th.bing.com/th/id/OIP.hGSCbXlcOjL_9mmzerqAbQHaHa?w=197&h=197&c=7&r=0&o=5&dpr=1.3&pid=1.7",
+                                      ),
                                 fit: BoxFit.cover,
                               ),
                             ),
@@ -78,19 +78,19 @@ class _EditaccountState extends State<Editaccount> {
                   ),
                 ),
                 const SizedBox(width: 20),
-                const Expanded(
+                Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       TextField(
                         decoration: InputDecoration(
-                          labelText: 'First Name',
+                          labelText: S.of(context).FirstName,
                         ),
                       ),
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                       TextField(
                         decoration: InputDecoration(
-                          labelText: 'Last Name',
+                          labelText: S.of(context).LastName,
                         ),
                       ),
                     ],
@@ -101,9 +101,9 @@ class _EditaccountState extends State<Editaccount> {
             const SizedBox(
               height: 20,
             ),
-            const TextField(
+            TextField(
               decoration: InputDecoration(
-                labelText: 'Fondamenta Zitelle 86 VeniceItaly, 30133',
+                labelText: S.of(context).FondamentaVeniceItaly30133,
               ),
             ),
             TextField(
@@ -118,14 +118,14 @@ class _EditaccountState extends State<Editaccount> {
                     child: const Icon(Icons.photo),
                   ),
                 ),
-                labelText: '     add social profile',
+                labelText: '     ${S.of(context).addsocialprofile}',
               ),
             ),
             const SizedBox(
               height: 20,
             ),
             Text(
-              "Notes",
+              S.of(context).Notes,
               style: AppStyles.text20(context)
                   .copyWith(fontWeight: FontWeight.bold),
             ),
@@ -133,7 +133,7 @@ class _EditaccountState extends State<Editaccount> {
               height: 5,
             ),
             Text(
-              "Hi I am ${FirebaseAuth.instance.currentUser!.displayName} a plumbing professional for 10 years and ready to fulfill all requests",
+              "${S.of(context).HiIam} ${FirebaseAuth.instance.currentUser!.displayName} ${S.of(context).aplumbing}",
               style: AppStyles.text14(context),
             ),
           ],

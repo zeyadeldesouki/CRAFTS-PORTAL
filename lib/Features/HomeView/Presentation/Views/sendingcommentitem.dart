@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:craftsportal/Core/Customtextfield.dart';
 import 'package:craftsportal/Features/SignUpView/Data/Customtextfieldmodel.dart';
+import 'package:craftsportal/generated/l10n.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -24,7 +25,7 @@ class sendingcommentitem extends StatelessWidget {
             flex: 5,
             child: CustomTextField(
               customtextfieldmodel: Customtextfieldmodel(
-                  controller: controller, text: "Type a comment"),
+                  controller: controller, text: S.of(context).Typecomment),
             )),
         Expanded(
           child: IconButton(

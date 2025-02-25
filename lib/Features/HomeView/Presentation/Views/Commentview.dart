@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:craftsportal/Features/HomeView/Presentation/Views/sendingcommentitem.dart';
+import 'package:craftsportal/generated/l10n.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -28,7 +29,7 @@ class _CommentviewState extends State<Commentview> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text("Comments"),
+        title:  Text(S.of(context).Comments),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),

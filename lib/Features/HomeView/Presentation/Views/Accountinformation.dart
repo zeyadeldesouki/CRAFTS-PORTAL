@@ -1,4 +1,5 @@
 import 'package:craftsportal/Core/AppStyles.dart';
+import 'package:craftsportal/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
 class Accountinformation extends StatelessWidget {
@@ -10,7 +11,7 @@ class Accountinformation extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          "Information",
+          S.of(context).Information,
           style:
               AppStyles.text20(context).copyWith(fontWeight: FontWeight.bold),
         ),
@@ -21,30 +22,12 @@ class Accountinformation extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              "Location",
+              S.of(context).Location,
               style: AppStyles.text16(context)
                   .copyWith(fontWeight: FontWeight.bold),
             ),
             Text(
-              "Cairo",
-              style: AppStyles.text16(context)
-                  .copyWith(fontWeight: FontWeight.bold),
-            ),
-          ],
-        ),
-        const SizedBox(
-          height: 5,
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(
-              "Order history",
-              style: AppStyles.text16(context)
-                  .copyWith(fontWeight: FontWeight.bold),
-            ),
-            Text(
-              "9 orders",
+              S.of(context).Cairo,
               style: AppStyles.text16(context)
                   .copyWith(fontWeight: FontWeight.bold),
             ),
@@ -57,12 +40,30 @@ class Accountinformation extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              "language",
+              S.of(context).Orderhistory,
               style: AppStyles.text16(context)
                   .copyWith(fontWeight: FontWeight.bold),
             ),
             Text(
-              "English",
+              "9 ${S.of(context).orders}",
+              style: AppStyles.text16(context)
+                  .copyWith(fontWeight: FontWeight.bold),
+            ),
+          ],
+        ),
+        const SizedBox(
+          height: 5,
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              S.of(context).language,
+              style: AppStyles.text16(context)
+                  .copyWith(fontWeight: FontWeight.bold),
+            ),
+            Text(
+              S.of(context).English,
               style: AppStyles.text16(context)
                   .copyWith(fontWeight: FontWeight.bold),
             ),

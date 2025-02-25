@@ -4,6 +4,7 @@ import 'package:craftsportal/Core/CustomNavigationBar.dart';
 import 'package:craftsportal/Features/HomeView/Presentation/Views/Feedwidget.dart';
 import 'package:craftsportal/Features/HomeView/Presentation/Views/commentview.dart';
 import 'package:craftsportal/Features/ServiceProvider/Presentation/ServiceProvider.dart';
+import 'package:craftsportal/generated/l10n.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -178,7 +179,7 @@ class _HomeviewState extends State<Homeview> {
                                                       }));
                                             },
                                             child: Text(
-                                              "Comment",
+                                              S.of(context).Comments,
                                               style: AppStyles.text14(context),
                                             ),
                                           ),

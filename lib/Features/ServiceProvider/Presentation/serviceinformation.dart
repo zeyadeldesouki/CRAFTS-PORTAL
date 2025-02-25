@@ -1,4 +1,5 @@
 import 'package:craftsportal/Core/AppStyles.dart';
+import 'package:craftsportal/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
 class ServiceProviderinformation extends StatelessWidget {
@@ -13,8 +14,8 @@ class ServiceProviderinformation extends StatelessWidget {
       children: [
         Padding(
           padding: EdgeInsets.only(left: width * 0.24, right: 8),
-          child: const Text(
-            "10 years experience in maintenance of everything related to plumbing and holds a certificate of appreciation for my great accomplishments",
+          child: Text(
+            S.of(context).service,
           ),
         ),
         Padding(
@@ -23,7 +24,7 @@ class ServiceProviderinformation extends StatelessWidget {
             children: [
               IconButton(onPressed: () {}, icon: const Icon(Icons.location_on)),
               Text(
-                "St 100 Damietta",
+                S.of(context).locate,
                 style: AppStyles.text14(context),
               ),
             ],
@@ -41,7 +42,7 @@ class ServiceProviderinformation extends StatelessWidget {
               const CircleAvatar(radius: 3, backgroundColor: Colors.green),
               const SizedBox(width: 5),
               Text(
-                "online",
+                S.of(context).online,
                 style: AppStyles.text14(context),
               ),
             ],
@@ -58,7 +59,7 @@ class ServiceProviderinformation extends StatelessWidget {
                 decoration: BoxDecoration(
                     color: Colors.green,
                     borderRadius: BorderRadius.circular(6)),
-                child: const Center(child: Text("Follow")),
+                child: Center(child: Text(S.of(context).Follow)),
               ),
               SizedBox(width: width * 0.05),
               Row(

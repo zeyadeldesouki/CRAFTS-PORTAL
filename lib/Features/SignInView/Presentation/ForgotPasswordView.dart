@@ -4,6 +4,7 @@ import 'package:craftsportal/Core/CustomButton.dart';
 import 'package:craftsportal/Core/Customtextfield.dart';
 import 'package:craftsportal/Features/SignUpView/Data/Customtextfieldmodel.dart';
 import 'package:craftsportal/Features/SplashView/Data/ButtonModel.dart';
+import 'package:craftsportal/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
 class ForgotPasswordView extends StatefulWidget {
@@ -29,12 +30,12 @@ class _ForgotPasswordViewState extends State<ForgotPasswordView> {
           child: Column(
             children: [
               Text(
-                "Forgot your Password",
+                S.of(context).ForgotyourPassword,
                 style: AppStyles.text20(context)
                     .copyWith(fontWeight: FontWeight.bold),
               ),
               Text(
-                "Enter your Email",
+                S.of(context).enteremail,
                 style: AppStyles.text14(context),
               ),
               SizedBox(
@@ -43,13 +44,13 @@ class _ForgotPasswordViewState extends State<ForgotPasswordView> {
               CustomTextField(
                 valid: (value) {
                   if (value!.isEmpty || !value.contains("@gmail.com")) {
-                    return "Enter Email";
+                    return S.of(context).enteremail;
                   }
                   return null;
                 },
                 customtextfieldmodel: Customtextfieldmodel(
                   controller: emailcontroller,
-                  text: "Email",
+                  text: S.of(context).email,
                 ),
               ),
               SizedBox(
@@ -61,7 +62,7 @@ class _ForgotPasswordViewState extends State<ForgotPasswordView> {
                     await AuthService()
                         .SetPassword(email: emailcontroller.text);
                   },
-                  title: "Password recovery",
+                  title: S.of(context).Passwordrecovery,
                   color: Colors.grey,
                 ),
               ),

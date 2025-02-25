@@ -8,6 +8,7 @@ import 'package:craftsportal/Features/SignUpView/Data/Customtextfieldmodel.dart'
 import 'package:craftsportal/Features/SignUpView/Presentation/FooterWidget.dart';
 import 'package:craftsportal/Features/SplashView/Data/ButtonModel.dart';
 import 'package:craftsportal/Features/VerificationCode/Presentation/VerifiyCode.dart';
+import 'package:craftsportal/generated/l10n.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:quickalert/quickalert.dart';
@@ -43,13 +44,13 @@ class _SignupviewState extends State<Signupview> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Text(
-                        "Create New",
+                        S.of(context).CreateNew,
                         style: AppStyles.text20(context).copyWith(
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                       Text(
-                        "Account",
+                        S.of(context).Account,
                         style: AppStyles.text20(context).copyWith(
                           fontWeight: FontWeight.bold,
                         ),
@@ -62,13 +63,13 @@ class _SignupviewState extends State<Signupview> {
                             child: CustomTextField(
                               valid: (value) {
                                 if (value!.isEmpty) {
-                                  return "Enter Name";
+                                  return S.of(context).entername;
                                 }
                                 return null;
                               },
                               customtextfieldmodel: Customtextfieldmodel(
                                 controller: Namecontroller,
-                                text: "Enter Name",
+                                text: S.of(context).entername,
                               ),
                             ),
                           ),
@@ -79,12 +80,12 @@ class _SignupviewState extends State<Signupview> {
                             child: CustomTextField(
                               valid: (value) {
                                 if (value!.isEmpty || value.length != 11) {
-                                  return "Enter Mobile Number";
+                                  return S.of(context).EnterMobileNumber;
                                 }
                                 return null;
                               },
                               customtextfieldmodel: Customtextfieldmodel(
-                                  text: "Mobile Number",
+                                  text: S.of(context).MobileNumber,
                                   controller: Mobilecontroller),
                             ),
                           ),
@@ -96,12 +97,12 @@ class _SignupviewState extends State<Signupview> {
                       CustomTextField(
                         valid: (value) {
                           if (value!.isEmpty || !value.contains("@gmail.com")) {
-                            return "Enter Email";
+                            return S.of(context).enteremail;
                           }
                           return null;
                         },
                         customtextfieldmodel: Customtextfieldmodel(
-                            controller: Emailcontroller, text: "Email"),
+                            controller: Emailcontroller, text: S.of(context).email),
                       ),
                       const SizedBox(
                         height: 20,
@@ -109,21 +110,21 @@ class _SignupviewState extends State<Signupview> {
                       CustomTextField(
                         valid: (value) {
                           if (value!.isEmpty) {
-                            return "Enter Password";
+                            return S.of(context).enterpassword;
                           }
                           return null;
                         },
                         customtextfieldmodel: Customtextfieldmodel(
                             obscureText: true,
                             controller: Passwordcontroller,
-                            text: "Password"),
+                            text: S.of(context).password),
                       ),
                       const SizedBox(
                         height: 20,
                       ),
                       CustomTextField(
                         customtextfieldmodel:
-                            Customtextfieldmodel(text: "Category"),
+                            Customtextfieldmodel(text: S.of(context).category),
                       ),
                       SizedBox(
                         height: MediaQuery.sizeOf(context).height * 0.05,
@@ -146,7 +147,7 @@ class _SignupviewState extends State<Signupview> {
                               await QuickAlert.show(
                                 context: context,
                                 type: QuickAlertType.success,
-                                text: "sign up successfully",
+                                text: S.of(context).signupsuccessfully,
                               );
                               Navigator.push(
                                   context,
@@ -161,24 +162,24 @@ class _SignupviewState extends State<Signupview> {
                                 await QuickAlert.show(
                                   context: context,
                                   type: QuickAlertType.error,
-                                  text: "weak-password",
+                                  text: S.of(context).weakpassword,
                                 );
                               } else if (e.code == 'email-already-in-use') {
                                 await QuickAlert.show(
                                   context: context,
                                   type: QuickAlertType.error,
-                                  text: "email-already-in-use",
+                                  text: S.of(context).emailalreadyinuse,
                                 );
                               }
                             } catch (e) {
                               await QuickAlert.show(
                                 context: context,
                                 type: QuickAlertType.error,
-                                text: "sign up failed",
+                                text: S.of(context).signupfailed,
                               );
                             }
                           },
-                          title: "Sign Up",
+                          title: S.of(context).signup,
                           color: Colors.grey.shade100,
                           minimumSize:
                               Size(MediaQuery.sizeOf(context).width, 50),

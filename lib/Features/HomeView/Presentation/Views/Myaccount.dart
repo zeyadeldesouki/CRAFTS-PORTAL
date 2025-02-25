@@ -1,6 +1,7 @@
 import 'package:craftsportal/Core/AppStyles.dart';
 import 'package:craftsportal/Features/HomeView/Presentation/Views/Accountinformation.dart';
 import 'package:craftsportal/Features/HomeView/Presentation/Views/Editaccount.dart';
+import 'package:craftsportal/generated/l10n.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -13,7 +14,7 @@ class Myaccount extends StatelessWidget {
       appBar: AppBar(
         centerTitle: true,
         title: Text(
-          "My Account",
+          S.of(context).MyAccount,
           style:
               AppStyles.text20(context).copyWith(fontWeight: FontWeight.bold),
         ),
@@ -26,7 +27,7 @@ class Myaccount extends StatelessWidget {
                     return const Editaccount();
                   }));
                 },
-                child: Text("Edit", style: AppStyles.text16(context))),
+                child: Text(S.of(context).Edit, style: AppStyles.text16(context))),
           ),
         ],
       ),
@@ -44,7 +45,7 @@ class Myaccount extends StatelessWidget {
                   .copyWith(fontWeight: FontWeight.bold),
             ),
             subtitle: Text(
-              "Italy",
+              S.of(context).Italy,
               style: AppStyles.text14(context),
             ),
           ),
@@ -60,7 +61,7 @@ class Myaccount extends StatelessWidget {
                     color: Colors.grey[200],
                   ),
                   child: Text(
-                    " Hi I am ${FirebaseAuth.instance.currentUser!.displayName} a plumbing professional for 10 years and ready..",
+                    " ${S.of(context).HiIam} ${FirebaseAuth.instance.currentUser!.displayName} ${S.of(context).professional}",
                     overflow: TextOverflow.ellipsis,
                     style: AppStyles.text16(context)
                         .copyWith(fontWeight: FontWeight.bold),
@@ -77,7 +78,7 @@ class Myaccount extends StatelessWidget {
                   height: MediaQuery.sizeOf(context).height * 0.03,
                 ),
                 Text(
-                  "Payment",
+                  S.of(context).Payment,
                   style: AppStyles.text20(context)
                       .copyWith(fontWeight: FontWeight.bold),
                 ),
@@ -103,7 +104,7 @@ class Myaccount extends StatelessWidget {
                     Column(
                       children: [
                         Text(
-                          "Visa card",
+                          S.of(context).Visacard,
                           style: AppStyles.text16(context)
                               .copyWith(fontWeight: FontWeight.bold),
                         ),
@@ -133,7 +134,7 @@ class Myaccount extends StatelessWidget {
                       width: MediaQuery.sizeOf(context).width * 0.05,
                     ),
                     Text(
-                      "Add new card",
+                      S.of(context).Addnewcard,
                       style: AppStyles.text16(context)
                           .copyWith(fontWeight: FontWeight.bold),
                     )

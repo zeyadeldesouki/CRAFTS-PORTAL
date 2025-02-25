@@ -1,5 +1,6 @@
 import 'package:craftsportal/Core/AppStyles.dart';
 import 'package:craftsportal/Features/HomeView/Presentation/Views/HomeView.dart';
+import 'package:craftsportal/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
 class ServiceCategoriesView extends StatelessWidget {
@@ -11,7 +12,7 @@ class ServiceCategoriesView extends StatelessWidget {
       appBar: AppBar(
         centerTitle: true,
         title: Text(
-          "Service Categories",
+          S.of(context).ServiceCategories,
           style: AppStyles.text20(context),
         ),
       ),
@@ -28,21 +29,21 @@ class ServiceCategoriesView extends StatelessWidget {
                     }));
                   },
                   child: Text(
-                    "Plumber",
+                    S.of(context).Plumber,
                     style: AppStyles.text20(context)
                         .copyWith(fontWeight: FontWeight.bold),
                   )),
             ),
             ListTile(
               title: Text(
-                "Carpenter",
+                S.of(context).Carpenter,
                 style: AppStyles.text20(context)
                     .copyWith(fontWeight: FontWeight.bold),
               ),
             ),
             ListTile(
               title: Text(
-                "Electrician",
+                S.of(context).Electrician,
                 style: AppStyles.text20(context)
                     .copyWith(fontWeight: FontWeight.bold),
               ),

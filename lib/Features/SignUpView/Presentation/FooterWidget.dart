@@ -1,5 +1,6 @@
 import 'package:craftsportal/Core/AppStyles.dart';
 import 'package:craftsportal/Features/SignInView/Presentation/SignInview.dart';
+import 'package:craftsportal/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
 class FooterWidget extends StatelessWidget {
@@ -12,14 +13,14 @@ class FooterWidget extends StatelessWidget {
     return Column(
       children: [
         Text(
-          "By signing up, you agree to our Terms and Conditions",
+          S.of(context).ourterms,
           style: AppStyles.text14(context),
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              "Already a member? ",
+              S.of(context).Alreadymember,
               style: AppStyles.text14(context),
             ),
             InkWell(
@@ -29,7 +30,7 @@ class FooterWidget extends StatelessWidget {
                 }));
               },
               child: Text(
-                "Sign In",
+                S.of(context).signin,
                 style: AppStyles.text14(context)
                     .copyWith(fontWeight: FontWeight.bold),
               ),

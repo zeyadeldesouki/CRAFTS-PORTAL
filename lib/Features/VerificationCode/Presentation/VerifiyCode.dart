@@ -3,6 +3,7 @@ import 'package:craftsportal/Core/CustomButton.dart';
 import 'package:craftsportal/Features/HomeView/Presentation/Views/HomeView.dart';
 import 'package:craftsportal/Features/SplashView/Data/ButtonModel.dart';
 import 'package:craftsportal/Features/VerificationCode/Presentation/Widgets/Otp.dart';
+import 'package:craftsportal/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
 class Verifiycode extends StatelessWidget {
@@ -15,7 +16,7 @@ class Verifiycode extends StatelessWidget {
       appBar: AppBar(
         centerTitle: true,
         title: Text(
-          "Verification Code",
+          S.of(context).VerificationCode,
           style:
               AppStyles.text20(context).copyWith(fontWeight: FontWeight.bold),
         ),
@@ -26,7 +27,7 @@ class Verifiycode extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Text(
-              "We Sent Verification Code to the number ",
+              S.of(context).sentcode,
               style: AppStyles.text14(context)
                   .copyWith(fontWeight: FontWeight.bold),
             ),
@@ -53,11 +54,11 @@ class Verifiycode extends StatelessWidget {
             CustomButton(
               buttonModel: ButtonModel(
                   onPressed: () {
-                    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                      content: Text("Verified Successfully"),
+                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                      content: Text(S.of(context).VerifiedSuccessfully),
                       backgroundColor: Colors.green,
                       behavior: SnackBarBehavior.floating,
-                      shape: RoundedRectangleBorder(
+                      shape: const RoundedRectangleBorder(
                         borderRadius: BorderRadius.all(
                           Radius.circular(10),
                         ),
@@ -69,14 +70,14 @@ class Verifiycode extends StatelessWidget {
                     }));
                   },
                   minimumSize: Size(MediaQuery.sizeOf(context).width, 50),
-                  title: "Verify",
+                  title: S.of(context).Verify,
                   color: Colors.grey),
             ),
             const Expanded(
               child: SizedBox(),
             ),
             Text(
-              "Resend a new Code",
+              S.of(context).ResendCode,
               style: AppStyles.text14(context)
                   .copyWith(fontWeight: FontWeight.bold),
             ),
@@ -85,7 +86,7 @@ class Verifiycode extends StatelessWidget {
                 duration: (const Duration(seconds: 10)),
                 builder: (context, value, child) {
                   return Text(
-                    "Available in ${value.toInt().toString()}",
+                    "${S.of(context).Availablein} ${value.toInt().toString()}",
                     style: AppStyles.text14(context),
                   );
                 }),

@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:craftsportal/Core/Customtextfield.dart';
 import 'package:craftsportal/Features/SignUpView/Data/Customtextfieldmodel.dart';
+import 'package:craftsportal/generated/l10n.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -26,7 +27,7 @@ class _SendingdataState extends State<Sendingdata> {
             flex: 5,
             child: CustomTextField(
               customtextfieldmodel: Customtextfieldmodel(
-                  controller: controller, text: "Type a message"),
+                  controller: controller, text: S.of(context).Typemessage),
             )),
         Expanded(
           child: IconButton(

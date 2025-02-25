@@ -3,6 +3,7 @@ import 'package:craftsportal/Core/AppStyles.dart';
 import 'package:craftsportal/Features/ChatView/presentation/RecieveBubbleChat.dart';
 import 'package:craftsportal/Features/ChatView/presentation/SendBubbleChat.dart';
 import 'package:craftsportal/Features/ChatView/presentation/sendingdata.dart';
+import 'package:craftsportal/generated/l10n.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -15,7 +16,7 @@ class Chatview extends StatelessWidget {
       appBar: AppBar(
         centerTitle: true,
         title: Text(
-          "Messages",
+          S.of(context).Messages,
           style: AppStyles.text20(context),
         ),
       ),

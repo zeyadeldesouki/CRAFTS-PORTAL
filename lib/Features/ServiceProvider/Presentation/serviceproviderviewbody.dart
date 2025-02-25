@@ -7,6 +7,7 @@ import 'package:craftsportal/Features/ServiceProvider/Presentation/Listtileprovi
 import 'package:craftsportal/Features/ServiceProvider/Presentation/ReviewView.dart';
 import 'package:craftsportal/Features/ServiceProvider/Presentation/serviceinformation.dart';
 import 'package:craftsportal/Features/SplashView/Data/ButtonModel.dart';
+import 'package:craftsportal/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
 class serviceproviderviewbody extends StatelessWidget {
@@ -41,7 +42,7 @@ class serviceproviderviewbody extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "My Services",
+                    S.of(context).MyServices,
                     style: AppStyles.text20(context)
                         .copyWith(fontWeight: FontWeight.bold),
                   ),
@@ -49,19 +50,19 @@ class serviceproviderviewbody extends StatelessWidget {
                     height: width * 0.02,
                   ),
                   Text(
-                    "Installing water drums",
+                    S.of(context).Installingdrums,
                     style: AppStyles.text14(context),
                   ),
                   Text(
-                    "Maintenance of water pipes",
+                    S.of(context).Maintenancepipes,
                     style: AppStyles.text14(context),
                   ),
                   Text(
-                    "Installing water pumps",
+                    S.of(context).Installingpumps,
                     style: AppStyles.text14(context),
                   ),
                   Text(
-                    "Installing water taps",
+                    S.of(context).InstallingTaps,
                     style: AppStyles.text14(context),
                   ),
                 ],
@@ -82,7 +83,7 @@ class serviceproviderviewbody extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      "Reviews",
+                      S.of(context).Reviews,
                       style: AppStyles.text20(context)
                           .copyWith(fontWeight: FontWeight.bold),
                     ),
@@ -109,7 +110,7 @@ class serviceproviderviewbody extends StatelessWidget {
                             return const Chatview();
                           }));
                         },
-                        title: "Chat",
+                        title: S.of(context).Chat,
                         color: Colors.grey),
                   ),
                   SizedBox(
@@ -131,7 +132,7 @@ class serviceproviderviewbody extends StatelessWidget {
                 child: CustomButton(
                   buttonModel: ButtonModel(
                       minimumSize: Size(width * 0.8, 50),
-                      title: "Order Now",
+                      title: S.of(context).Order,
                       color: Colors.grey),
                 )),
           ],

@@ -9,6 +9,7 @@ import 'package:craftsportal/Features/SignInView/Presentation/ForgotPasswordView
 import 'package:craftsportal/Features/SignUpView/Data/Customtextfieldmodel.dart';
 import 'package:craftsportal/Features/SignUpView/Presentation/SignUpView.dart';
 import 'package:craftsportal/Features/SplashView/Data/ButtonModel.dart';
+import 'package:craftsportal/generated/l10n.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:quickalert/quickalert.dart';
@@ -37,12 +38,12 @@ class _SignInviewState extends State<SignInview> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Text(
-                "Login to",
+                S.of(context).title,
                 style: AppStyles.text20(context)
                     .copyWith(fontWeight: FontWeight.bold),
               ),
               Text(
-                "Your Account",
+                S.of(context).account,
                 style: AppStyles.text20(context)
                     .copyWith(fontWeight: FontWeight.bold),
               ),
@@ -52,13 +53,13 @@ class _SignInviewState extends State<SignInview> {
               CustomTextField(
                 valid: (value) {
                   if (value!.isEmpty || !value.contains("@gmail.com")) {
-                    return "Enter Email";
+                    return S.of(context).enteremail;
                   }
                   return null;
                 },
                 customtextfieldmodel: Customtextfieldmodel(
                   controller: emailController,
-                  text: "Email",
+                  text: S.of(context).email,
                 ),
               ),
               SizedBox(
@@ -67,14 +68,14 @@ class _SignInviewState extends State<SignInview> {
               CustomTextField(
                 valid: (value) {
                   if (value!.isEmpty || value.length < 6) {
-                    return "Enter Password";
+                    return S.of(context).enterpassword;
                   }
                   return null;
                 },
                 customtextfieldmodel: Customtextfieldmodel(
                     obscureText: true,
                     controller: passwordController,
-                    text: "Password"),
+                    text: S.of(context).password),
               ),
               Align(
                 alignment: Alignment.bottomRight,
@@ -88,7 +89,7 @@ class _SignInviewState extends State<SignInview> {
                   child: Padding(
                     padding: const EdgeInsets.all(8),
                     child: Text(
-                      "Forgot Password",
+                      S.of(context).ForgotPassword,
                       style: AppStyles.text14(context),
                     ),
                   ),
@@ -110,7 +111,7 @@ class _SignInviewState extends State<SignInview> {
                    await QuickAlert.show(
                       context: context,
                       type: QuickAlertType.success,
-                      text: "Login Successfully",
+                      text: S.of(context).LoginSuccessfully,
                     );
                     Navigator.push(context,
                         MaterialPageRoute(builder: (context) {
@@ -121,13 +122,13 @@ class _SignInviewState extends State<SignInview> {
                       return QuickAlert.show(
                         context: context,
                         type: QuickAlertType.error,
-                        text: "Invalid email or password",
+                        text: S.of(context).Invalidemailorpassword,
                       );
                     }
                   }
                 },
                 minimumSize: Size(MediaQuery.sizeOf(context).width * 0.8, 50),
-                title: "Sign In",
+                title: S.of(context).signin,
                 color: Colors.grey,
               )),
               const Expanded(child: SizedBox()),
@@ -135,7 +136,7 @@ class _SignInviewState extends State<SignInview> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "Not yet a member? ",
+                    S.of(context).Notyetamember,
                     style: AppStyles.text14(context),
                   ),
                   InkWell(
@@ -146,7 +147,7 @@ class _SignInviewState extends State<SignInview> {
                       }));
                     },
                     child: Text(
-                      "Sign Up",
+                      S.of(context).signup,
                       style: AppStyles.text14(context)
                           .copyWith(fontWeight: FontWeight.bold),
                     ),
